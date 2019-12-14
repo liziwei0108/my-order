@@ -67,3 +67,9 @@
 .orderItem__btn--grey{
    background-color:#999;
 }
+.orderItem__star--light{
+   color: #e9203d;
+}
+.orderItem__star--grey{
+   color: #999;
+}

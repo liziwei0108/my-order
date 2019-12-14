@@ -38,12 +38,31 @@ const data = [
 ];
 
 class OrderList extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data,
+    };
+  }
+
+  handleSubmit=(id, comment, stars) => {
+    const newData = this.state.data.map((item) => {
+      return item.id === id
+        ? {
+          ...item, comment, stars, ifCommented: true,
+        } : item;
+    });
+    this.setState({
+      data: newData,
+    });
+  }
+
   render() {
     return (
       <div>
         {
           data.map((item) => {
-            return <OrderItem key={item.id} data={item} />;
+            return <OrderItem key={item.id} data={item} onSubmit={this.handleSubmit} />;
           })
         }
       </div>
